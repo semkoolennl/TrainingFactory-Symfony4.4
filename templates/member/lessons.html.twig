@@ -1,0 +1,73 @@
+{% extends 'member.html.twig' %}
+{% block content %}
+    <link href="{{ asset('css/member/lessons.css') }}" type="text/css" rel="stylesheet" />
+    <table>
+        <thead>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td></td>
+                <td>2</td>
+                <td></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>3</td>
+                <td>3</td>
+                <td></td>
+                <td>3</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>5</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="navigator">
+        <div class="cal-previous" onclick="calcChange('/previous_')"><h3> < previous</h3></div>
+        <div class="cal-current"><h3>Week 2 - {{ startdate }}</h3></div>
+        <div class="cal-next" onclick="calcChange('/next_')"><h3>next > </h3></div>
+    </div>
+    <script>
+        function calcChange(urlString) {
+            var str = urlString+ '{{ startdate }}';
+            location.replace('http://127.0.0.1:8000/member/Lessons'+str);
+        }
+    </script>
+{% endblock %}

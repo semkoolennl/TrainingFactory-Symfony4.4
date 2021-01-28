@@ -1,0 +1,55 @@
+{% extends 'admin.html.twig' %}
+{% block content %}
+    <link href="{{ asset('css/admin/crud.css') }}" type="text/css" rel="stylesheet" />
+    <table>
+        <thead>
+            <th>Firstname</th>
+            <th>Preprovision</th>
+            <th>Lastname</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Hiring date</th>
+            <th>Salary</th>
+            <th colspan="2">Add User</th>
+        </thead>
+        <tbody>
+        {% for instructor in instructors %}
+            {% set user = instructor.user  %}
+            <tr>
+                <td>
+                    {{user.firstname }}
+                </td>
+                <td>
+                    {{ user.preprovision }}
+                </td>
+                <td>
+                    {{ user.lastName}}
+                </td>
+                <td>
+                    {{ user.gender }}
+                </td>
+                <td>
+                    {{ user.email }}
+                </td>
+                <td>
+                    {{ instructor.hiringdate|format_datetime() }}
+                </td>
+                <td>
+                    {{ instructor.salary }}
+                </td>
+                <td class="text-center">
+{#                    <a href="{{ path('updateUser', {'id':user.id}) }}" >#}
+{#                        <span class="glyphicon glyphicon-minus" style="color:red"></span>#}
+{#                    </a>#}
+                </td>
+                <td class="text-center">
+{#                    <a href="{{ path('deleteUser', {'id':user.id}) }}" >#}
+{#                        <span class="glyphicon glyphicon-pencil" style="color:red"></span>#}
+{#                    </a>#}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ dump(instructors) }}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <link href="{{ asset('css/bezoeker/index.css') }}" type="text/css" rel="stylesheet" />
+    <div class="nav">
+        <nav class="navbar navbar-nav navbar-dark">
+            <div class="navbar-left">
+                <h1>Training Factory</h1>
+            </div>
+            <div class="table navbar-right">
+                <ul id="horizontal-list">
+                    <li class="nav-item active"><a class="nav-link" href="#"><h3 class="main">Home</h3><span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><h3 class="main">Training aanbod</h3></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><h3 class="main">Veelgestelde vragen</h3></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><h3 class="main">Contact</h3></a></li>
+                    <li class="nav-item"><a class="nav-link login" href="{{ path('app_login') }}"><h3>Inloggen</h3></a></li>
+                    <li class="nav-item"><a class="nav-link register" href="{{ path('register') }}"><h3>Lid worden</h3></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-12 content">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}
